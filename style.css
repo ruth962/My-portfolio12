@@ -1,0 +1,327 @@
+/* --- 1. Global Variables & Reset --- */
+:root {
+    --bg-dark: #0f172a;        /* Your dark slate blue */
+    --bg-header: rgba(15, 23, 42, 0.9); 
+    --neon-pink: #ff65f2;      /* Primary accent */
+    --neon-cyan: #38bdf8;      /* Secondary accent */
+    --text-white: #f8fafc;
+    --text-dim: #94a3b8;
+    --transition: 0.4s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+    /* This creates a 'buffer' so the nav bar doesn't cover your titles */
+   
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Subtle radial gradient to match the depth of your reference image */
+    background: radial-gradient(circle at 80% 20%, #1e293b 0%, #0f172a 60%);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- 2. Fixed Navigation & RM Logo --- */
+.navPage {
+    position: fixed;    /* Keeps it at the top while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: var(--bg-header);
+    backdrop-filter: blur(12px); /* Frosted glass effect */
+    border-bottom: 1px solid rgba(255, 101, 242, 0.1);
+}
+
+/* The RM Monogram Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 24px;
+    border: 2px solid var(--neon-pink);
+    padding: 4px 12px;
+    border-radius: 6px;
+    color: #fff;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(255, 101, 242, 0.3);
+    transition: var(--transition);
+}
+
+.logo span:hover {
+    box-shadow: 0 0 20px var(--neon-pink);
+    transform: scale(1.05);
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--text-dim);
+    font-size: 17px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav a:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px var(--neon-pink);
+}
+
+/* --- 3. Home Section --- */
+.home-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 120px 10% 60px;
+    gap: 80px;
+ margin-top: -100px;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.descripe h2 {
+    color: var(--neon-cyan);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.descripe h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.descripe p {
+    color: var(--text-dim);
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+/* CV Button */
+.cv a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 35px;
+    border-radius: 50px;
+    background-color: #0284c7; /* Professional blue */
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.cv a:hover {
+    background-color: var(--neon-pink);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 101, 242, 0.3);
+}
+
+/* Profile Image & Neon Frame */
+.image-box {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.image-box img {
+    width: 320px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.frame-corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--neon-pink);
+}
+
+.top-right { top: -12px; right: -12px; border-left: 0; border-bottom: 0; }
+.bottom-left { bottom: -12px; left: -12px; border-right: 0; border-top: 0; }
+
+/* --- 4. Content Sections (About, Skills, Projects) --- */
+section {
+    padding: 100px 15%;
+}
+
+h1.Aboutme, .MySkill h1, .Project {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--text-white);
+}
+
+.Aboutme h2 {
+    color: var(--neon-cyan);
+    margin: 25px 0 10px;
+}
+
+/* Skills Grid */
+.abi {
+    margin: 40px 0 20px;
+    color: var(--neon-cyan);
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.skill {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.lang a {
+    color: white;
+    font-size: 45px;
+    padding: 20px;
+    background-color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    transition: var(--transition);
+    display: flex;
+}
+
+.lang a:hover {
+    background-color: var(--neon-pink);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 101, 242, 0.4);
+}
+
+/* Projects Grid */
+.MyProject {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.title {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--neon-cyan);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.title:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+}
+
+.title h3 {
+    margin: 15px 0;
+    color: var(--neon-cyan);
+}
+
+.title a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #0284c7;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* --- 5. Contact & Footer (No Gap) --- */
+.ContactSection {
+    padding-top: 100px;
+    padding-bottom: 40px; /* Reduced to merge with footer */
+    text-align: center;
+}
+
+.ContactInfo {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px 0;
+    color: var(--neon-cyan);
+    font-size: 1.1rem;
+}
+
+.Contact h5 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--text-dim);
+}
+
+.Contact .ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 24px;
+    border: 1px solid var(--neon-pink);
+    border-radius: 50%;
+    background-color: #334155;
+    margin: 0 10px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.Contact .ico:hover {
+    background-color: var(--neon-pink);
+    color: var(--bg-dark);
+    transform: translateY(-8px);
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+/* Footer styling with no gap */
+.copyRight1 {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- 6. Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .home-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 120px;
+    }
+    .text-content {
+        align-items: center;
+    }
+    .nav ul {
+        display: none; /* Usually hidden behind a hamburger menu on mobile */
+    }
+    .descripe h1 {
+        font-size: 2.5rem;
+    }
+}
